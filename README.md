@@ -19,8 +19,6 @@ There is convincing evidence that the following factors increase your risk for c
 
 * Oral contraceptives
 
-* Diethylstilbestrol (DES)
-
  Source: https://cancer.ca/en/cancer-information/cancer-types/cervical/risks
  
  Cervical cancer is also one of the most preventable cancers and can be detected early with regular screening. Many developing countries continue to have high levels of cervical cancer due to lack of access and possibly anxiety and embarrassment. With this in mind, I decided to create an online cervical cancer screener that coud be accessed from a mobile phone or a computer. Feature engineering was key in the process of creating the webapp as it was vital to find a balance between collecting enough information for the model to perform well and limiting the amount of time needed to input the information.
@@ -34,7 +32,7 @@ There are four target variables: Hinselmann, Schiller, Cytology and Biopsy. Biop
 ![image](https://user-images.githubusercontent.com/32803881/156441516-98dd0a79-1151-4c90-9c41-bb5bff132532.png)
 
 To deal with missing data, three imputation methods were explored:
-* K Nearest Neighbour Imputation
+* K Nearest Neighbour Imputation (chosen method)
 * Most Frequent Value Imputation
 * Automated Model Imputation (XGBoost & LightGBM)
 
@@ -64,20 +62,51 @@ Recursive feature elimination (RFE) was also explored to find a subset of featur
 
 ## Model
 
-LightGBM and XGBoost were both considered however, LightGBM had a tendancy to overfit due to the small size of the dataset thus XGBoost was chosen. 
+LightGBM and XGBoost were both considered however, LightGBM had a tendancy to overfit due to the small size of the dataset thus XGBoost was chosen. After using RandomSearch, the following hyperparamters were chosen.
 
-## Evaluation
+| Hyperparameter   | Final Value |
+|------------------|-------------|
+| max_depth        | 4           |
+|  learning_rate   | 0.05        |
+| n_estimators     | 500         |
+| colsample_bytree | 0.7         |
+| subsample        | 0.8         |
+| gamma            | 0.9         |
+| booster          | gbtree      |
 
-## Results
+### Testing Confusion Matrix
+![image](https://user-images.githubusercontent.com/32803881/156455421-3355a7d0-114b-4e2f-beba-f49e432eea90.png)
 
-Validation assessments:
-
-https://www.mycanceriq.ca/Cancers/Cervical
-
-https://www.cedars-sinai.org/health-library/risk-assessments/cervical-cancer-risk-assessment.html#:~:text=The%20American%20Cancer%20Society%20recommends,%2Dtesting)%20every%205%20years.
 
 ## Webapp
+Link:
+Screenshot:
 
+## Evaluation
+I found a few cervical cancer screeners online and compared the model risk assessment with a few mock patients.
+
+
+| Feature                           | Patient A - Newborn | Patient B - Young Adult | Patient C -    Adult (High Risk) |
+|-----------------------------------|---------------------|-------------------------|----------------------------------|
+| Age                               | 0                   | 22                      | 30                               |
+| Number of sexual partners         | 0                   | 3                       | 13                               |
+| First sexual intercourse (age)    | 0                   | 18                      | 15                               |
+| Num of pregnancies                | 0                   | 0                       | 2                                |
+| Smokes (packs/year)               | 0                   | 0                       | 20                               |
+| Hormonal Contraceptives   (years) | 0                   | 2                       | 3                                |
+| IUD (years)                       | 0                   | 2                       | 3                                |
+| STDs (number)                     | 0                   | 0                       | 2                                |
+| Model Risk Assessment             |                     |                         |                                  |
+| Ontario Cancer Care               | Lower than Average  | Lower than Average      | Higher Than Average              |
+
+Source: https://www.mycanceriq.ca/Cancers/Cervical
+
+Limitations:
+*
+*
+*
+*
+*
 
 ## Citations
 https://www.hindawi.com/journals/sp/2021/5540024/tab1/
