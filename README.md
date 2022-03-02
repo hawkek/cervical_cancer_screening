@@ -29,7 +29,7 @@ There is convincing evidence that the following factors increase your risk for c
 
 The Cervical Cancer Risk Factors Dataset was published by researchers in Venezuela in 2017. It includes 32 features about 858 patients, ranging from age, smoking history to number of sexual partners and STDs. Many of the features were taken from self reported survey responses and there were many missing values. This dataset presented the challenge of being relatively small (less than 1000 rows) and many missing values (two features had over 80% of the data missing). Additionally, patients may under-report or omit certain values like the number of packs of cigarettes smoked per year and the questions relating to sexual activity.
 
-There are four target variables: Hinselmann, Schiller, Cytology and Biopsy. Biopsy was chosen as the singular target as it is a common method of diagnosing cervical cancer. Around 1/8th of the patients had a positive result.
+There are four target variables: Hinselmann, Schiller, Cytology and Biopsy. Biopsy was chosen as the singular target as it is a common method of diagnosing cervical cancer. Around 1/8th of the patients had a positive result. For the final model, the positive class was upsampled.
 
 ![image](https://user-images.githubusercontent.com/32803881/156441516-98dd0a79-1151-4c90-9c41-bb5bff132532.png)
 
@@ -56,11 +56,15 @@ These features are some of the strongest features correlated with each other:
 * Dx:Cancer & Dx:HPV
 * Smokes & Smokes (years)
 
+Feature importance was also considered. Below is the feature importances from KNN iputed data.
 
+![image](https://user-images.githubusercontent.com/32803881/156444978-66c2d89d-cb8f-4c88-b6f6-afc444b5dbed.png)
 
+Recursive feature elimination (RFE) was also explored to find a subset of features 
 
 ## Model
 
+LightGBM and XGBoost were both considered however, LightGBM had a tendancy to overfit due to the small size of the dataset thus XGBoost was chosen. 
 
 ## Evaluation
 
