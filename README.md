@@ -64,6 +64,12 @@ Recursive feature elimination (RFE) was also explored to find a subset of featur
 
 LightGBM and XGBoost were both considered however, LightGBM had a tendancy to overfit due to the small size of the dataset thus XGBoost was chosen. After using RandomSearch, the following hyperparamters were chosen.
 
+Testing:
+
+F1 Score: 0.853
+
+Accuracy: 0.961
+
 | Hyperparameter   | Final Value |
 |------------------|-------------|
 | max_depth        | 4           |
