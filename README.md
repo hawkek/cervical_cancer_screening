@@ -78,12 +78,10 @@ LightGBM and XGBoost were both considered however, LightGBM had a tendancy to ov
 ![image](https://user-images.githubusercontent.com/32803881/156455421-3355a7d0-114b-4e2f-beba-f49e432eea90.png)
 
 
-## Webapp
-Link:
-Screenshot:
-
 ## Evaluation
 I found a few cervical cancer screeners online and compared the model risk assessment with a few mock patients.
+
+![image](https://user-images.githubusercontent.com/32803881/156499679-0e2a23a9-5ac7-45ae-a950-614b844af268.png)
 
 
 | Feature                           | Patient A - Newborn | Patient B - Young Adult | Patient C -    Adult (High Risk) |
@@ -96,17 +94,27 @@ I found a few cervical cancer screeners online and compared the model risk asses
 | Hormonal Contraceptives   (years) | 0                   | 2                       | 3                                |
 | IUD (years)                       | 0                   | 2                       | 3                                |
 | STDs (number)                     | 0                   | 0                       | 2                                |
-| Model Risk Assessment             |                     |                         |                                  |
+| Model Risk Assessment             | Low                 | Low                     | High                             |
 | Ontario Cancer Care               | Lower than Average  | Lower than Average      | Higher Than Average              |
 
 Source: https://www.mycanceriq.ca/Cancers/Cervical
 
-Limitations:
-*
-*
-*
-*
-*
+Limitations & Improvements:
+* The dataset is small and incomplete. A bigger dataset that included whether or not the patient is vaccinated for HPV and sampled more patients could help improve the usefulness of the model.
+* Create a more appealing user interface. There are some limitations to Streamlit so perhaps moving to a different platform could be useful.
+* Conducting a  pilot study to gather user feedback would undoubtably help improve the final solution.
+* It would be useful to conduct more thorough testing.
 
 ## Citations
-https://www.hindawi.com/journals/sp/2021/5540024/tab1/
+
+“Cervical Cancer.” My CancerIQ, https://www.mycanceriq.ca/Cancers/Cervical. 
+
+Khan, Irfan Ullah, et al. “Cervical Cancer Diagnosis Model Using Extreme Gradient Boosting and Bioinspired Firefly Optimization.” Scientific Programming, Hindawi, 19 July 2021, https://www.hindawi.com/journals/sp/2021/5540024/. 
+
+Lee, Sid. “Risk Factors for Cervical Cancer.” Canadian Cancer Society, https://cancer.ca/en/cancer-information/cancer-types/cervical/risks. 
+Mehmood, Mavra, et al. “Machine Learning Assisted Cervical Cancer Detection.” Frontiers, Frontiers, 1 Jan. 1AD, https://www.frontiersin.org/articles/10.3389/fpubh.2021.788376/full. 
+
+UCI Machine Learning Repository: Cervical Cancer (Risk Factors) Data Set, https://archive.ics.uci.edu/ml/datasets/Cervical+cancer+%28Risk+Factors%29#. 
+
+“What Should I Know about Cervical Cancer Screening?” Centers for Disease Control and Prevention, Centers for Disease Control and Prevention, 14 Dec. 2021, https://www.cdc.gov/cancer/cervical/basic_info/screening.htm. 
+
